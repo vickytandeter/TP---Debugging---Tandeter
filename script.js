@@ -1,16 +1,18 @@
-const input = document.getElementById("guessinput")
+const input = document.getElementById("guessInput")
 const button = document.getElementById("guessBtn")
 const message = document.getElementById("message")
 const attemptsText = document.getElementById("attempts")
+const resetBtn = document.getElementById("resetBtn")
 
-let secretNumber = Math.random() * 100
+let secretNumber = Math.floor(Math.random() * 100) + 1
 let attempts = 0
 
-button.addEventListener("click", checkGuess())
+button.addEventListener("click", checkGuess)
+resetBtn.addEventListener("click", resetGame)
 
 function checkGuess(){
 
-  const guess = input.value
+  const guess = Number(input.value)
 
   attempts = attempts + 1
 
@@ -18,14 +20,19 @@ function checkGuess(){
 
   if(guess === secretNumber){
     message.innerText = "¡Ganaste!"
-  }
-
-  if(guess < secretNumber){
+  }else if(guess < secretNumber){
     message.innerText = "El número es mayor"
-  }
-
-  if(guess > secretNumber){
+  }else{
     message.innerText = "El número es menor"
   }
+}
 
+function resetGame()
+{
+  secretNumber = Math.floor(Math.random() * 100) + 1
+  attempts = 0
+
+  attemptsText.innerText = 0
+  message.innerText = ""
+  input.value = ""
 }
