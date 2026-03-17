@@ -9,6 +9,11 @@ let attempts = 0
 
 button.addEventListener("click", checkGuess)
 resetBtn.addEventListener("click", resetGame)
+input.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    checkGuess()
+  }
+})
 
 function checkGuess(){
 
