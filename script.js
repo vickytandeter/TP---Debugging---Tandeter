@@ -20,10 +20,12 @@ function checkGuess(){
 
   if(guess === secretNumber){
     message.innerText = "¡Ganaste!"
-  }else if(guess < secretNumber){
+  }else if(guess < secretNumber && guess >= 0){
     message.innerText = "El número es mayor"
-  }else{
+  }else if (guess > secretNumber && guess <= 100){
     message.innerText = "El número es menor"
+  } else {
+    message.innerText = "El número no es válido"
   }
 }
 
