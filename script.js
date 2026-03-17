@@ -27,7 +27,7 @@ function checkGuess(){
 
   if(guess === secretNumber){
     message.innerText = "¡Ganaste!"
-  }else if(guess < secretNumber && guess >= 0){
+  }else if(guess < secretNumber && guess >= 1){
     message.innerText = "El número es mayor"
     guesses.push(guess)
   }else if (guess > secretNumber && guess <= 100){
